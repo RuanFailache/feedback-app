@@ -1,21 +1,22 @@
 import { IconType } from 'react-icons'
 import { StyledButton } from './button.styles'
-import { colors } from '../../themes/colors'
 import { ButtonHTMLAttributes } from 'react'
+import { DefaultTheme } from 'styled-components'
+import { theme } from '../../themes'
+import { Typography } from '../typography'
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
     text: string
     icon?: IconType
-    bgColor?: keyof typeof colors['base']
+    bgColor?: keyof DefaultTheme['palette']
 }
 
 export const Button = function ({ text, icon, bgColor, ...props }: IButton) {
     const hasBackground = Boolean(bgColor)
-    const background = colors.base[bgColor ? bgColor : 'primary']
 
     return (
         <StyledButton
-            bgColor={background}
+            bgColor={bgColor ?? 'primary'}
             hasBackground={hasBackground}
             {...props}
         >
@@ -23,10 +24,15 @@ export const Button = function ({ text, icon, bgColor, ...props }: IButton) {
                 icon({
                     size: 12,
                     fill: hasBackground
-                        ? colors.uiElements.background
-                        : colors.base.primary,
+                        ? theme.palette.background
+                        : theme.palette.primary,
                 })}
-            <span>{text}</span>
+            <Typography
+                as="span"
+                text={text}
+                variant="headline4"
+                color={hasBackground ? 'onBase' : 'title'}
+            />
         </StyledButton>
     )
 }

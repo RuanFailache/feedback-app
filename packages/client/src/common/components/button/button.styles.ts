@@ -1,9 +1,8 @@
-import styled from 'styled-components'
-import { colors } from '../../themes/colors'
+import styled, { DefaultTheme } from 'styled-components'
 
 interface IStyledButton {
     hasBackground?: boolean
-    bgColor: string
+    bgColor: keyof DefaultTheme['palette']
 }
 
 export const StyledButton = styled.button<IStyledButton>`
@@ -13,25 +12,14 @@ export const StyledButton = styled.button<IStyledButton>`
 
     padding: 16px 32px;
     border: none;
-    border-radius: 10px;
+    border-radius: ${(props) => props.theme.borderRadius};
 
-    color: ${(props) => {
-        if (props.hasBackground) return colors.text.title
-        return colors.text.onBase
-    }};
-
-    background-color: ${(props) => {
-        if (props.hasBackground) return 'transparent'
-        return props.bgColor
-    }};
+    background-color: ${(props) =>
+        props.hasBackground
+            ? 'transparent'
+            : props.theme.palette[props.bgColor]};
 
     &:hover {
         filter: brightness(110%);
-    }
-
-    span {
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 700;
     }
 `
