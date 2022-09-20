@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { theme } from './theme'
 
 export const ResetGlobalCss = createGlobalStyle`
     /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -33,7 +34,7 @@ export const ResetGlobalCss = createGlobalStyle`
     }
     body {
         font-family: 'Jost';
-        line-height: 1;
+        background-color: ${theme.palette.background};
     }
     ol, ul {
         list-style: none;

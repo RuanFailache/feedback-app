@@ -3,7 +3,7 @@ import { Typography } from '../typography'
 import { StyledDropdownMenu } from './dropdown-menu.styles'
 import { FiChevronUp, FiChevronDown, FiCheck } from 'react-icons/fi'
 import { useDropdownMenu } from './dropdown-menu.hook'
-import { theme } from '../../themes'
+import { theme } from '../../themes/theme'
 
 interface IDropdownMenu {
     label?: string
@@ -33,17 +33,17 @@ export const DropdownMenu = function ({
                     {label && (
                         <Typography
                             text={`${label} : `}
-                            color="background"
-                            variant="body3"
+                            color="onBase"
+                            variant="body2"
                         />
                     )}
                     <Typography
                         text={value}
-                        color="background"
+                        color="onBase"
                         variant="headline4"
                     />
                 </div>
-                <Icon color={theme.palette.background} />
+                <Icon color={theme.palette.onBase} />
             </StyledDropdownMenu.Select>
 
             {isOpen && (

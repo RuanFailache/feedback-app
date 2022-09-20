@@ -1,9 +1,6 @@
 import { DropdownMenu } from '../common/components/dropdown-menu'
+import { SuggestionsPage } from '../modules/suggestions'
 
 export default function Home() {
-    return (
-        <>
-            <DropdownMenu options={['teste 1', 'teste 2', 'teste 3']} />
-        </>
-    )
+    return <SuggestionsPage />
 }
