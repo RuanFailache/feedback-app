@@ -1,10 +1,10 @@
 import 'styled-components'
 
 interface IFont {
-    size: number
-    height: number
+    size: string
+    height: string
     weight: 300 | 400 | 500 | 600 | 700
-    spacing: number
+    spacing: string
 }
 
 type FontType =
