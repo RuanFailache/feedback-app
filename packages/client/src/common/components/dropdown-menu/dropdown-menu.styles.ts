@@ -5,6 +5,7 @@ export class StyledDropdownMenu {
     static Container = styled.div`
         display: block;
         position: relative;
+        width: fit-content;
     `
 
     static Select = styled.div`

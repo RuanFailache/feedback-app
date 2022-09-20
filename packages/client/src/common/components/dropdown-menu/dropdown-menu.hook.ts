@@ -8,7 +8,7 @@ export const useDropdownMenu = function (
     const [value, setValue] = useState(options[0])
     const [isOpen, setIsOpen] = useState(false)
 
-    const openDropdown = () => setIsOpen(true)
+    const toogleDropdown = () => setIsOpen((prev) => !prev)
 
     const closeDropdown = () => setIsOpen(false)
 
@@ -34,5 +34,5 @@ export const useDropdownMenu = function (
         }
     }, [ref])
 
-    return { value, handleChange, isOpen, openDropdown, closeDropdown }
+    return { value, handleChange, isOpen, toogleDropdown, closeDropdown }
 }

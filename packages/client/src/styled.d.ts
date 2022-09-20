@@ -29,10 +29,13 @@ type PaletteTheme =
     | 'tangerine'
     | 'maya'
 
+type GridType = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+
 declare module 'styled-components' {
     export interface DefaultTheme {
         borderRadius: string
         palette: Record<PaletteTheme, string>
         text: Record<FontType, IFont>
+        grid: Record<GridType, string>
     }
 }

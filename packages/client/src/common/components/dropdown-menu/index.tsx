@@ -18,7 +18,7 @@ export const DropdownMenu = function ({
 }: IDropdownMenu) {
     const wrapperRef = useRef<HTMLDivElement>(null)
 
-    const { value, handleChange, isOpen, openDropdown } = useDropdownMenu(
+    const { value, handleChange, isOpen, toogleDropdown } = useDropdownMenu(
         options,
         wrapperRef,
         onChange
@@ -28,7 +28,7 @@ export const DropdownMenu = function ({
 
     return (
         <StyledDropdownMenu.Container ref={wrapperRef}>
-            <StyledDropdownMenu.Select onClick={openDropdown}>
+            <StyledDropdownMenu.Select onClick={toogleDropdown}>
                 <div>
                     {label && (
                         <Typography
