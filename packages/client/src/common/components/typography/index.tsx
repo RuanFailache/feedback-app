@@ -6,14 +6,22 @@ interface ITypography {
     text: string
     variant?: FontType
     color?: PaletteTheme
+    underlined?: boolean
 }
 
-export const Typography = function ({ as, text, variant, color }: ITypography) {
+export const Typography = function ({
+    as,
+    text,
+    variant,
+    color,
+    underlined,
+}: ITypography) {
     return (
         <StyledTypography
             as={as ?? 'p'}
             color={color}
             variant={variant ?? 'body1'}
+            underlined={underlined}
         >
             {text}
         </StyledTypography>

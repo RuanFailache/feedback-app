@@ -13,6 +13,7 @@ export class StyledDropdownMenu {
         align-items: center;
         gap: 10px;
         border-radius: ${(props) => props.theme.borderRadius};
+        cursor: pointer;
 
         p {
             display: inline;

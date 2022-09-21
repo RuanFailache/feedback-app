@@ -4,6 +4,7 @@ import { FontType, PaletteTheme } from '../../../styled'
 interface IStyledTypography {
     variant: FontType
     color?: PaletteTheme
+    underlined?: boolean
 }
 
 export const StyledTypography = styled.p<IStyledTypography>`
@@ -12,4 +13,5 @@ export const StyledTypography = styled.p<IStyledTypography>`
     font-weight: ${(p) => p.theme.text[p.variant].weight};
     letter-spacing: ${(p) => p.theme.text[p.variant].spacing};
     color: ${(p) => p.theme.palette[p.color ?? 'body']};
+    text-decoration: ${(p) => (p.underlined ? 'underline' : 'none')};
 `

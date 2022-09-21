@@ -5,9 +5,11 @@ export class SuggestionsHeaderStyles {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
         padding: ${(p) => p.theme.grid.sm} ${(p) => p.theme.grid.lg};
         border-radius: ${(p) => p.theme.borderRadius};
         background-color: ${(p) => p.theme.palette.tertiary};
+        box-sizing: border-box;
     `
 
     static Content = styled.div`

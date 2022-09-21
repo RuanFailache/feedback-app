@@ -1,6 +1,13 @@
-import { DropdownMenu } from '../common/components/dropdown-menu'
+import Head from 'next/head'
 import { SuggestionsPage } from '../modules/suggestions'
 
 export default function Home() {
-    return <SuggestionsPage />
+    return (
+        <>
+            <Head>
+                <title>Suggestions</title>
+            </Head>
+            <SuggestionsPage />
+        </>
+    )
 }
