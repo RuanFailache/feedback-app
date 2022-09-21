@@ -5,6 +5,7 @@ interface IStyledTypography {
     variant: FontType
     color?: PaletteTheme
     underlined?: boolean
+    centered?: boolean
 }
 
 export const StyledTypography = styled.p<IStyledTypography>`
@@ -14,4 +15,5 @@ export const StyledTypography = styled.p<IStyledTypography>`
     letter-spacing: ${(p) => p.theme.text[p.variant].spacing};
     color: ${(p) => p.theme.palette[p.color ?? 'body']};
     text-decoration: ${(p) => (p.underlined ? 'underline' : 'none')};
+    text-align: ${(p) => (p.centered ? 'center' : 'start')};
 `

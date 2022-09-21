@@ -6,6 +6,7 @@ export class StyledDropdownMenu {
         display: block;
         position: relative;
         width: fit-content;
+        z-index: 1;
     `
 
     static Select = styled.div`

@@ -1,7 +1,7 @@
 import { Typography, Button, DropdownMenu } from '@/app-commons/components'
 import { MdAdd } from 'react-icons/md'
 import Image from 'next/image'
-import BulbIcon from '@/app-public/icons/bulb.svg'
+import BulbIcon from '@/app-assets/icons/bulb.svg'
 import { SuggestionsHeaderStyles } from './header.styles'
 
 export const SuggestionsHeader = function () {

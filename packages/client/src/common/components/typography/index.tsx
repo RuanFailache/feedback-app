@@ -7,6 +7,7 @@ interface ITypography {
     variant?: FontType
     color?: PaletteTheme
     underlined?: boolean
+    centered?: boolean
 }
 
 export const Typography = function ({
@@ -15,6 +16,7 @@ export const Typography = function ({
     variant,
     color,
     underlined,
+    centered,
 }: ITypography) {
     return (
         <StyledTypography
@@ -22,6 +24,7 @@ export const Typography = function ({
             color={color}
             variant={variant ?? 'body1'}
             underlined={underlined}
+            centered={centered}
         >
             {text}
         </StyledTypography>

@@ -1,1 +1,5 @@
-export const SuggestionsCardList = function () {}
+import { SuggestionsEmptyCardList } from './components/empty'
+
+export const SuggestionsCardList = function () {
+    return <SuggestionsEmptyCardList />
+}

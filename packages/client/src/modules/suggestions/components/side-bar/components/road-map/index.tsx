@@ -29,6 +29,7 @@ export const SuggestionsSideBarRoadMap = function () {
                     { label: 'Live', value: 1 },
                 ].map((item, index) => (
                     <SuggestionsSideBarRoadMapStyles.Item
+                        key={item.label}
                         itemColor={colors[index]}
                     >
                         <div>
