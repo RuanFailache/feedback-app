@@ -1,9 +1,9 @@
-import { RefObject, useEffect, useRef, useState } from 'react'
-import { Typography } from '../typography'
+import { useRef } from 'react'
+import { Typography } from '@/app-commons/components'
 import { StyledDropdownMenu } from './dropdown-menu.styles'
 import { FiChevronUp, FiChevronDown, FiCheck } from 'react-icons/fi'
 import { useDropdownMenu } from './dropdown-menu.hook'
-import { theme } from '../../themes/theme'
+import { theme } from '@/app-commons/themes/theme'
 
 interface IDropdownMenu {
     label?: string

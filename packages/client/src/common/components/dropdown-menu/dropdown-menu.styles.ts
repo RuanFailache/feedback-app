@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { Animation } from '../../themes/animation'
+import { Animation } from '@/app-commons/themes/animation'
 
 export class StyledDropdownMenu {
     static Container = styled.div`

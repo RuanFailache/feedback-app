@@ -1,7 +1,7 @@
-import { Typography } from '../../../../../../common/components/typography'
-import { PaletteTheme } from '../../../../../../styled'
+import { PaletteTheme } from 'src/styled'
 import { SuggestionsSideBarStyles } from '../../side-bar.styles'
 import { SuggestionsSideBarRoadMapStyles } from './road-map.styles'
+import { Typography } from '@/app-commons/components'
 
 const colors: PaletteTheme[] = ['maya', 'primary', 'tangerine']
 

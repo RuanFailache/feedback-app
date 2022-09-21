@@ -2,8 +2,8 @@ import { IconType } from 'react-icons'
 import { StyledButton } from './button.styles'
 import { ButtonHTMLAttributes } from 'react'
 import { DefaultTheme } from 'styled-components'
-import { theme } from '../../themes/theme'
-import { Typography } from '../typography'
+import { theme } from '@/app-commons/themes/theme'
+import { Typography } from '@/app-commons/components'
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
     text: string

@@ -1,4 +1,4 @@
-import { Typography } from '../../../../common/components/typography'
+import { Typography } from '@/app-commons/components'
 import { SuggestionsSideBarRoadMap } from './components/road-map'
 import { SuggestionsSideBarTagList } from './components/tag-list'
 import { SuggestionsSideBarStyles } from './side-bar.styles'

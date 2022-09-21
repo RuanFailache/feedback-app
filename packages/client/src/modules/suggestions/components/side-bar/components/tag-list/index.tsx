@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Typography } from '../../../../../../common/components/typography'
+import { Typography } from '@/app-commons/components'
 import { SuggestionsSideBarStyles } from '../../side-bar.styles'
 import { SuggestionsSideBarTagListStyles } from './tag-list.styles'
 

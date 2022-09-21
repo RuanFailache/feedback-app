@@ -1,4 +1,4 @@
-import { FontType, PaletteTheme } from '../../../styled'
+import { FontType, PaletteTheme } from 'src/styled'
 import { StyledTypography } from './typography.styles'
 
 interface ITypography {
