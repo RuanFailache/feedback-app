@@ -4,10 +4,12 @@ export class SuggestionCardStyles {
     static Container = styled.li`
         display: flex;
         align-items: center;
+        width: 100%;
         justify-content: space-between;
         padding: ${(p) => p.theme.grid.lg};
         border-radius: ${(p) => p.theme.borderRadius};
         background-color: ${(p) => p.theme.palette.surface};
+        box-sizing: border-box;
     `
 
     static Tag = styled.div`
@@ -40,6 +42,7 @@ export class SuggestionCardStyles {
         display: flex;
         flex-direction: column;
         gap: ${(p) => p.theme.grid.xs};
+        width: 100%;
     `
 
     static CommentBox = styled.button`

@@ -7,7 +7,10 @@ export const SuggestionsFilledCardList = function () {
     return (
         <FilledCardListStyles.List>
             {suggestions.map((suggestion) => (
-                <SuggestionCard suggestion={suggestion} />
+                <SuggestionCard
+                    key={suggestion.id}
+                    suggestion={suggestion}
+                />
             ))}
         </FilledCardListStyles.List>
     )

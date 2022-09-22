@@ -8,20 +8,19 @@ export class SuggestionsStyles {
     static MainContainer = styled.div`
         width: ${PAGE_WIDTH};
         margin: 0 auto;
-        position: relative;
     `
 
     static PositionedSideBar = styled.aside`
         position: fixed;
         top: ${(p) => p.theme.grid.xxl};
-        left: calc((100% - ${PAGE_WIDTH}) / 2);
+        left: calc((100vw - ${PAGE_WIDTH}) / 2);
         width: ${SIDE_BAR_WIDTH};
     `
 
     static PositionedMainContent = styled.div`
         position: absolute;
         top: ${(p) => p.theme.grid.xxl};
-        left: ${255 + 32}px;
+        left: calc((100vw - ${PAGE_WIDTH}) / 2 + ${255 + 32}px);
         display: flex;
         flex-direction: column;
         gap: ${(p) => p.theme.grid.xl};

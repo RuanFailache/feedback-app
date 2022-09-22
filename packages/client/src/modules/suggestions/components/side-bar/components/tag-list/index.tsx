@@ -2,32 +2,24 @@ import { useState } from 'react'
 import { Typography } from '@/app-commons/components'
 import { SuggestionsSideBarStyles } from '../../side-bar.styles'
 import { SuggestionsSideBarTagListStyles } from './tag-list.styles'
-
-const tags = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature']
-
-const useFilterSuggestionByTag = function (tags: string[]) {
-    const [selectedTag, setSelectedTag] = useState(tags[0])
-
-    const changeTag = (tag: string) => setSelectedTag(tag)
-
-    return { selectedTag, changeTag }
-}
+import { useSuggestionContext } from '@/app-modules/suggestions/suggestions.context'
 
 export const SuggestionsSideBarTagList = function () {
-    const { selectedTag, changeTag } = useFilterSuggestionByTag(tags)
+    const { categories, selectedCategory, filterByCategory } =
+        useSuggestionContext()
 
     return (
         <SuggestionsSideBarStyles.Box>
             <SuggestionsSideBarTagListStyles.List>
-                {tags.map((tag) => (
+                {categories.map((category) => (
                     <SuggestionsSideBarTagListStyles.Tag
-                        key={tag}
-                        selected={tag === selectedTag}
-                        onClick={() => changeTag(tag)}
+                        key={category}
+                        selected={category === selectedCategory}
+                        onClick={() => filterByCategory(category)}
                     >
                         <Typography
                             as="span"
-                            text={tag}
+                            text={category}
                             variant="body3"
                         />
                     </SuggestionsSideBarTagListStyles.Tag>
