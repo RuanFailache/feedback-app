@@ -5,21 +5,20 @@ import { SuggestionsSideBarTagListStyles } from './tag-list.styles'
 import { useSuggestionContext } from '@/app-modules/suggestions/suggestions.context'
 
 export const SuggestionsSideBarTagList = function () {
-    const { categories, selectedCategory, filterByCategory } =
-        useSuggestionContext()
+    const { categories, category, filterByCategory } = useSuggestionContext()
 
     return (
         <SuggestionsSideBarStyles.Box>
             <SuggestionsSideBarTagListStyles.List>
-                {categories.map((category) => (
+                {categories.map((curr) => (
                     <SuggestionsSideBarTagListStyles.Tag
-                        key={category}
-                        selected={category === selectedCategory}
-                        onClick={() => filterByCategory(category)}
+                        key={curr}
+                        selected={curr === category}
+                        onClick={() => filterByCategory(curr)}
                     >
                         <Typography
                             as="span"
-                            text={category}
+                            text={curr}
                             variant="body3"
                         />
                     </SuggestionsSideBarTagListStyles.Tag>

@@ -1,4 +1,4 @@
-import { Suggestion } from '@/app-commons/models/suggetion'
+import { Suggestion } from '@/app-commons/models/suggestion'
 import {
     createContext,
     PropsWithChildren,
@@ -13,7 +13,7 @@ interface ContextProps {
     categories: string[]
     hasSuggestions: boolean
     suggestions: Suggestion[]
-    selectedCategory: string
+    category: string
     filterByCategory: (category: string) => void
 }
 
@@ -24,7 +24,7 @@ const INITIAL_CONTEXT_STATE: ContextProps = {
     suggestions: [],
     hasSuggestions: false,
     categories: [],
-    selectedCategory: DISPLAY_ALL_CATEGORIES,
+    category: DISPLAY_ALL_CATEGORIES,
     filterByCategory: (category) => {},
 }
 
@@ -36,12 +36,17 @@ interface ProviderProps {
 
 export const SuggestionProvider = function ({
     children,
-    suggestions: initialState,
+    suggestions: allSuggestions,
 }: PropsWithChildren<ProviderProps>) {
-    const [suggestions, setSuggestions] = useState(initialState)
-    const [selectedCategory, setSelectedCategory] = useState(
-        DISPLAY_ALL_CATEGORIES
-    )
+    const initialSuggestionsState = useMemo(() => {
+        return allSuggestions.filter(
+            (suggestion) => suggestion.status === 'suggestion'
+        )
+    }, [allSuggestions])
+
+    const [suggestions, setSuggestions] = useState(initialSuggestionsState)
+
+    const [category, setCategory] = useState(DISPLAY_ALL_CATEGORIES)
 
     const categories = useMemo(() => {
         const arr: string[] = []
@@ -50,7 +55,7 @@ export const SuggestionProvider = function ({
             arr.push(suggestion.category)
         }
         return [DISPLAY_ALL_CATEGORIES, ...arr]
-    }, [initialState])
+    }, [initialSuggestionsState])
 
     const filterByCategory = useCallback(
         (category: string) => {
@@ -58,18 +63,18 @@ export const SuggestionProvider = function ({
                 throw new Error('Invalid category provided')
             }
 
-            setSelectedCategory(category)
+            setCategory(category)
 
             if (category === DISPLAY_ALL_CATEGORIES) {
-                setSuggestions(initialState)
+                setSuggestions(initialSuggestionsState)
             } else {
-                const filteredSuggestions = initialState.filter(
+                const filteredSuggestions = initialSuggestionsState.filter(
                     (suggestion) => suggestion.category === category
                 )
                 setSuggestions(filteredSuggestions)
             }
         },
-        [initialState]
+        [initialSuggestionsState]
     )
 
     return (
@@ -78,7 +83,7 @@ export const SuggestionProvider = function ({
                 categories,
                 suggestions,
                 filterByCategory,
-                selectedCategory,
+                category,
                 amount: suggestions.length,
                 hasSuggestions: suggestions.length > 0,
             }}

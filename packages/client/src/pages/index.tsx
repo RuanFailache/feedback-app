@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { GetStaticProps, NextPage } from 'next'
-import { Suggestion } from '@/app-commons/models/suggetion'
+import { Suggestion } from '@/app-commons/models/suggestion'
 import {
     SuggestionProvider,
     useSuggestionContext,

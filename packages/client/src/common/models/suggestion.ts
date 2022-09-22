@@ -5,7 +5,7 @@ export interface Suggestion {
     title: string
     category: string
     upvotes: number
-    status: string
+    status: 'suggestion' | 'in-progress' | 'live' | 'planned'
     description: string
     comments: Comment[]
 }
