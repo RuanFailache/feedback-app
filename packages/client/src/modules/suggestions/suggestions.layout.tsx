@@ -1,9 +1,11 @@
-import { SuggestionsCardList } from './components/card-list'
+import { PropsWithChildren } from 'react'
 import { SuggestionsHeader } from './components/header'
 import { SuggestionsSideBar } from './components/side-bar'
 import { SuggestionsStyles } from './suggestions.styles'
 
-export const SuggestionsPage = () => {
+export const SuggestionsPageLayout = function ({
+    children,
+}: PropsWithChildren) {
     return (
         <SuggestionsStyles.MainContainer>
             <SuggestionsStyles.PositionedSideBar>
@@ -11,7 +13,7 @@ export const SuggestionsPage = () => {
             </SuggestionsStyles.PositionedSideBar>
             <SuggestionsStyles.PositionedMainContent>
                 <SuggestionsHeader />
-                <SuggestionsCardList />
+                {children}
             </SuggestionsStyles.PositionedMainContent>
         </SuggestionsStyles.MainContainer>
     )

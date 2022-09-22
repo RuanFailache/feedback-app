@@ -26,5 +26,6 @@ export class SuggestionsStyles {
         flex-direction: column;
         gap: ${(p) => p.theme.grid.xl};
         width: ${MAIN_CONTENT_WIDTH};
+        padding-bottom: ${(p) => p.theme.grid.xl};
     `
 }

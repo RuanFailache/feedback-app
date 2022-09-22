@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { SuggestionsEmptyCardListStyles } from './empty.styles'
+import { SuggestionsEmptyCardListStyles } from './empty-card-list.styles'
 import searchImg from '@/app-assets/images/empty-list.svg'
 import { Button, Typography } from '@/app-commons/components'
 import { MdAdd } from 'react-icons/md'

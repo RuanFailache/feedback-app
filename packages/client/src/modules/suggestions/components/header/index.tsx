@@ -3,8 +3,11 @@ import { MdAdd } from 'react-icons/md'
 import Image from 'next/image'
 import BulbIcon from '@/app-assets/icons/bulb.svg'
 import { SuggestionsHeaderStyles } from './header.styles'
+import { useSuggestionContext } from '../../suggestions.context'
 
 export const SuggestionsHeader = function () {
+    const { amount } = useSuggestionContext()
+
     return (
         <SuggestionsHeaderStyles.Container>
             <SuggestionsHeaderStyles.Content>
@@ -14,7 +17,7 @@ export const SuggestionsHeader = function () {
                         alt="bulb icon"
                     />
                     <Typography
-                        text="6 Suggestions"
+                        text={`${amount} Suggestions`}
                         variant="headline3"
                         color="onBase"
                     />
