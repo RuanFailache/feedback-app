@@ -1,4 +1,3 @@
-import { Suggestion } from '@/app-commons/models/suggestion'
 import {
     createContext,
     PropsWithChildren,
@@ -12,6 +11,7 @@ import {
 import {
     DISPLAY_ALL_CATEGORIES,
     INITIAL_CONTEXT_STATE,
+    suggestionsSortLabels,
     SuggestionsSortType,
 } from './suggestions.constants'
 
@@ -93,6 +93,10 @@ export const SuggestionProvider = function ({
         sortModes[type as SuggestionsSortType]()
         setSuggestions(sortedArray)
     }
+
+    useEffect(() => {
+        sortTypeChanged(suggestionsSortLabels[0])
+    }, [])
 
     return (
         <SuggestionContext.Provider
