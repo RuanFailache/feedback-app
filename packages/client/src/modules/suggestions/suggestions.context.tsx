@@ -4,49 +4,38 @@ import {
     PropsWithChildren,
     useCallback,
     useContext,
+    useEffect,
     useMemo,
     useState,
 } from 'react'
 
-interface ContextProps {
-    amount: number
-    categories: string[]
-    hasSuggestions: boolean
-    suggestions: Suggestion[]
-    category: string
-    filterByCategory: (category: string) => void
-}
+import {
+    DISPLAY_ALL_CATEGORIES,
+    INITIAL_CONTEXT_STATE,
+    SuggestionsSortType,
+} from './suggestions.constants'
 
-const DISPLAY_ALL_CATEGORIES = 'All'
+import {
+    SuggestionsContextProps,
+    SuggestionsProviderProps,
+} from './suggestions.interfaces'
 
-const INITIAL_CONTEXT_STATE: ContextProps = {
-    amount: 0,
-    suggestions: [],
-    hasSuggestions: false,
-    categories: [],
-    category: DISPLAY_ALL_CATEGORIES,
-    filterByCategory: (category) => {},
-}
-
-const SuggestionContext = createContext<ContextProps>(INITIAL_CONTEXT_STATE)
-
-interface ProviderProps {
-    suggestions: Suggestion[]
-}
+const SuggestionContext = createContext<SuggestionsContextProps>(
+    INITIAL_CONTEXT_STATE
+)
 
 export const SuggestionProvider = function ({
     children,
     suggestions: allSuggestions,
-}: PropsWithChildren<ProviderProps>) {
+}: PropsWithChildren<SuggestionsProviderProps>) {
     const initialSuggestionsState = useMemo(() => {
         return allSuggestions.filter(
             (suggestion) => suggestion.status === 'suggestion'
         )
     }, [allSuggestions])
 
-    const [suggestions, setSuggestions] = useState(initialSuggestionsState)
-
     const [category, setCategory] = useState(DISPLAY_ALL_CATEGORIES)
+    const [suggestions, setSuggestions] = useState(initialSuggestionsState)
 
     const categories = useMemo(() => {
         const arr: string[] = []
@@ -77,13 +66,42 @@ export const SuggestionProvider = function ({
         [initialSuggestionsState]
     )
 
+    const sortTypeChanged = (type: string) => {
+        const sortedArray = [...suggestions]
+        const sortModes = {
+            [SuggestionsSortType.leastUpvotes]: () =>
+                sortedArray.sort((prev, curr) => {
+                    return prev.upvotes - curr.upvotes
+                }),
+            [SuggestionsSortType.leastComments]: () =>
+                sortedArray.sort((prev, curr) => {
+                    const prevLength = prev.comments?.length ?? 0
+                    const currLength = curr.comments?.length ?? 0
+                    return prevLength - currLength
+                }),
+            [SuggestionsSortType.mostComments]: () =>
+                sortedArray.sort((prev, curr) => {
+                    const prevLength = prev.comments?.length ?? 0
+                    const currLength = curr.comments?.length ?? 0
+                    return currLength - prevLength
+                }),
+            [SuggestionsSortType.mostUpvots]: () =>
+                sortedArray.sort((prev, curr) => {
+                    return curr.upvotes - prev.upvotes
+                }),
+        }
+        sortModes[type as SuggestionsSortType]()
+        setSuggestions(sortedArray)
+    }
+
     return (
         <SuggestionContext.Provider
             value={{
+                category,
                 categories,
                 suggestions,
+                sortTypeChanged,
                 filterByCategory,
-                category,
                 amount: suggestions.length,
                 hasSuggestions: suggestions.length > 0,
             }}

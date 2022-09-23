@@ -5,8 +5,10 @@ import BulbIcon from '@/app-assets/icons/bulb.svg'
 import { SuggestionsHeaderStyles } from './header.styles'
 import { useSuggestionContext } from '../../suggestions.context'
 
+import { suggestionsSortLabels } from '../../suggestions.constants'
+
 export const SuggestionsHeader = function () {
-    const { amount } = useSuggestionContext()
+    const { amount, sortTypeChanged } = useSuggestionContext()
 
     return (
         <SuggestionsHeaderStyles.Container>
@@ -24,12 +26,9 @@ export const SuggestionsHeader = function () {
                 </SuggestionsHeaderStyles.Info>
                 <DropdownMenu
                     label="Sort by"
-                    options={[
-                        'Most Upvotes',
-                        'Least Upvotes',
-                        'Most Comments',
-                        'Least Comments',
-                    ]}
+                    initialValue={suggestionsSortLabels[0]}
+                    options={suggestionsSortLabels}
+                    onChange={sortTypeChanged}
                 />
             </SuggestionsHeaderStyles.Content>
             <Button

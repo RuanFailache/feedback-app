@@ -1,11 +1,11 @@
 import { RefObject, useEffect, useState } from 'react'
 
 export const useDropdownMenu = function (
-    options: string[],
+    initialValue: string,
     ref: RefObject<HTMLDivElement>,
     onChange?: (option: string) => void
 ) {
-    const [value, setValue] = useState(options[0])
+    const [value, setValue] = useState(initialValue)
     const [isOpen, setIsOpen] = useState(false)
 
     const toogleDropdown = () => setIsOpen((prev) => !prev)

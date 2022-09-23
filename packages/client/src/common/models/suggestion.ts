@@ -7,5 +7,5 @@ export interface Suggestion {
     upvotes: number
     status: 'suggestion' | 'in-progress' | 'live' | 'planned'
     description: string
-    comments: Comment[]
+    comments?: Comment[]
 }

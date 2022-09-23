@@ -8,6 +8,7 @@ import { theme } from '@/app-commons/themes/theme'
 interface IDropdownMenu {
     label?: string
     options: string[]
+    initialValue: string
     onChange?: (option: string) => void
 }
 
@@ -15,11 +16,12 @@ export const DropdownMenu = function ({
     label,
     options,
     onChange,
+    initialValue,
 }: IDropdownMenu) {
     const wrapperRef = useRef<HTMLDivElement>(null)
 
     const { value, handleChange, isOpen, toogleDropdown } = useDropdownMenu(
-        options,
+        initialValue,
         wrapperRef,
         onChange
     )
