@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { FontType, PaletteTheme } from '../../../@types/styled'
+
+import { FontType, PaletteTheme } from 'styled-components'
 
 interface IStyledTypography {
     variant: FontType

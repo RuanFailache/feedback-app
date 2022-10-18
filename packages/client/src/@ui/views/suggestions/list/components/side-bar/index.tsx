@@ -1,7 +1,8 @@
-import { Typography } from 'src/@presentation/components'
 import { SuggestionsSideBarRoadMap } from './components/road-map'
 import { SuggestionsSideBarTagList } from './components/tag-list'
 import { SuggestionsSideBarStyles } from './side-bar.styles'
+
+import { Typography } from '@ui/components'
 
 export const SuggestionsSideBar = function () {
     return (

@@ -1,9 +1,11 @@
 import { useRef } from 'react'
-import { Typography } from 'src/@presentation/components'
-import { StyledDropdownMenu } from './dropdown-menu.styles'
 import { FiChevronUp, FiChevronDown, FiCheck } from 'react-icons/fi'
+
+import { StyledDropdownMenu } from './dropdown-menu.styles'
 import { useDropdownMenu } from './dropdown-menu.hook'
-import { theme } from 'src/@presentation/themes/theme'
+
+import { Typography } from '@ui/components'
+import { theme } from '@ui/themes/theme'
 
 interface IDropdownMenu {
     label?: string

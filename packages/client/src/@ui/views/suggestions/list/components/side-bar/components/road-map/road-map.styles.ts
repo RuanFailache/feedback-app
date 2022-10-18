@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-import { PaletteTheme } from '../../../../../../@types/styled'
+import styled, { PaletteTheme } from 'styled-components'
 
 export class SuggestionsSideBarRoadMapStyles {
     static Header = styled.header`

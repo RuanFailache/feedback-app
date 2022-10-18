@@ -1,7 +1,7 @@
+import { ResetGlobalCss } from '@ui/themes/reset'
+import { theme } from '@ui/themes/theme'
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
-import { theme } from '@/app-commons/themes/theme'
-import { ResetGlobalCss } from '@/app-commons/themes/reset'
 
 export default function App({ Component, pageProps }: AppProps) {
     return (

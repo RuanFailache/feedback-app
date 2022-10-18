@@ -1,14 +1,17 @@
 import Image from 'next/image'
 import { SuggestionsEmptyCardListStyles } from './empty-card-list.styles'
 import searchImg from '@/app-assets/images/empty-list.svg'
-import { Button, Typography } from 'src/@presentation/components'
+import { Button, Typography } from '@ui/components'
 import { MdAdd } from 'react-icons/md'
 
 export const SuggestionsEmptyCardList = function () {
     return (
         <SuggestionsEmptyCardListStyles.Container>
             <SuggestionsEmptyCardListStyles.Content>
-                <Image src={searchImg} />
+                <Image
+                    src={searchImg}
+                    alt="search icon"
+                />
                 <SuggestionsEmptyCardListStyles.TextBox>
                     <Typography
                         text="There is no feedback yet."

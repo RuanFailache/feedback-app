@@ -1,7 +1,9 @@
-import { PaletteTheme } from 'src/@types/styled'
+import { PaletteTheme } from 'styled-components'
+
 import { SuggestionsSideBarStyles } from '../../side-bar.styles'
 import { SuggestionsSideBarRoadMapStyles } from './road-map.styles'
-import { Typography } from 'src/@presentation/components'
+
+import { Typography } from '@ui/components'
 
 const colors: PaletteTheme[] = ['maya', 'primary', 'tangerine']
 

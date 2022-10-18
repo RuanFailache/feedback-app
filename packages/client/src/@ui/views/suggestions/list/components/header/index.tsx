@@ -1,11 +1,14 @@
-import { Typography, Button, DropdownMenu } from 'src/@presentation/components'
 import { MdAdd } from 'react-icons/md'
 import Image from 'next/image'
-import BulbIcon from '@/app-assets/icons/bulb.svg'
-import { SuggestionsHeaderStyles } from './header.styles'
-import { useSuggestionsListContext } from '../../list.context'
 
+import BulbIcon from '@/app-assets/icons/bulb.svg'
+
+import { SuggestionsHeaderStyles } from './header.styles'
+
+import { useSuggestionsListContext } from '../../list.context'
 import { suggestionsSortLabels } from '../../list.constants'
+
+import { Typography, Button, DropdownMenu } from '@ui/components'
 
 export const SuggestionsHeader = function () {
     const { amount, sortTypeChanged } = useSuggestionsListContext()
