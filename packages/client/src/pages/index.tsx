@@ -1,13 +1,12 @@
 import Head from 'next/head'
 import { GetStaticProps, NextPage } from 'next'
-import { Suggestion } from '@/app-commons/models/suggestion'
+
+import { Suggestion } from '@resources/models/suggestion'
+
 import {
-    SuggestionProvider,
-    useSuggestionContext,
-} from '@/app-modules/suggestions/suggestions.context'
-import { SuggestionsPageLayout } from '@/app-modules/suggestions/suggestions.layout'
-import { SuggestionsFilledCardList } from '@/app-modules/suggestions/components/filled-card-list'
-import { SuggestionsEmptyCardList } from '@/app-modules/suggestions/components/empty-card-list'
+    SuggestionsListProvider,
+    SuggestionsListView,
+} from '@ui/views/suggestions/list'
 
 interface PageProps {
     suggestions: Suggestion[]
@@ -29,23 +28,11 @@ const Home: NextPage<PageProps> = function ({ suggestions }) {
             <Head>
                 <title>Suggestions</title>
             </Head>
-            <SuggestionProvider suggestions={suggestions}>
-                <SuggestionsPageLayout>
-                    <PageComponent />
-                </SuggestionsPageLayout>
-            </SuggestionProvider>
+            <SuggestionsListProvider suggestions={suggestions}>
+                <SuggestionsListView />
+            </SuggestionsListProvider>
         </>
     )
-}
-
-const PageComponent = function () {
-    const { hasSuggestions } = useSuggestionContext()
-
-    if (hasSuggestions) {
-        return <SuggestionsFilledCardList />
-    }
-
-    return <SuggestionsEmptyCardList />
 }
 
 export default Home
