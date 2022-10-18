@@ -1,9 +1,9 @@
-import { useSuggestionContext } from '../../list.context'
+import { useSuggestionsListContext } from '../../list.context'
 import { SuggestionCard } from './components/card'
 import { FilledCardListStyles } from './filled-card-list.styles'
 
 export const SuggestionsFilledCardList = function () {
-    const { suggestions } = useSuggestionContext()
+    const { suggestions } = useSuggestionsListContext()
 
     return (
         <FilledCardListStyles.List>

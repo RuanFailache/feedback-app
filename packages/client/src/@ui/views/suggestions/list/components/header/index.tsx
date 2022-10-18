@@ -3,12 +3,12 @@ import { MdAdd } from 'react-icons/md'
 import Image from 'next/image'
 import BulbIcon from '@/app-assets/icons/bulb.svg'
 import { SuggestionsHeaderStyles } from './header.styles'
-import { useSuggestionContext } from '../../list.context'
+import { useSuggestionsListContext } from '../../list.context'
 
 import { suggestionsSortLabels } from '../../list.constants'
 
 export const SuggestionsHeader = function () {
-    const { amount, sortTypeChanged } = useSuggestionContext()
+    const { amount, sortTypeChanged } = useSuggestionsListContext()
 
     return (
         <SuggestionsHeaderStyles.Container>

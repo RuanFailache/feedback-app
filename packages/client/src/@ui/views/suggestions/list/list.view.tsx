@@ -2,11 +2,11 @@ import { SuggestionsEmptyCardList } from './components/empty-card-list'
 import { SuggestionsFilledCardList } from './components/filled-card-list'
 import { SuggestionsHeader } from './components/header'
 import { SuggestionsSideBar } from './components/side-bar'
-import { useSuggestionContext } from './list.context'
+import { useSuggestionsListContext } from './list.context'
 import { SuggestionsStyles } from './list.styles'
 
 export const SuggestionsListView = function () {
-    const { hasSuggestions } = useSuggestionContext()
+    const { hasSuggestions } = useSuggestionsListContext()
 
     return (
         <SuggestionsStyles.MainContainer>

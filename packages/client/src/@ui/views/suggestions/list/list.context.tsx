@@ -115,6 +115,6 @@ export const SuggestionsListProvider = function ({
     )
 }
 
-export const useSuggestionContext = function () {
+export const useSuggestionsListContext = function () {
     return useContext(SuggestionContext)
 }

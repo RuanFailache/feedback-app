@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { Typography } from 'src/@presentation/components'
 import { SuggestionsSideBarStyles } from '../../side-bar.styles'
 import { SuggestionsSideBarTagListStyles } from './tag-list.styles'
-import { useSuggestionContext } from 'src/@presentation/suggestions-list/suggestions-list.context'
+import { useSuggestionsListContext } from 'src/@presentation/suggestions-list/suggestions-list.context'
 
 export const SuggestionsSideBarTagList = function () {
-    const { categories, category, filterByCategory } = useSuggestionContext()
+    const { categories, category, filterByCategory } =
+        useSuggestionsListContext()
 
     return (
         <SuggestionsSideBarStyles.Box>
